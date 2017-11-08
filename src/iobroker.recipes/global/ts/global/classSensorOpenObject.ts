@@ -4,31 +4,102 @@ var stringEmpty = "";
 
 /* ***** Open sensor: Start ***** */
 function SensorOpenObject() {
-    this.SourceId = numUndefined;
-    this.Source = stringEmpty;
+    this.InitiatorId = numUndefined;
     this.StateId = numUndefined;
+    this.Initiator = stringEmpty;
     this.State = stringEmpty;
     this.TimestampDiff = numUndefined;
     this.TimestampPrevious = numUndefined;
 }
 
-function SensorOpenObjectSetStateId(paramObject, paramState, paramEventTimestamp) {
-    if (paramObject.StateId != paramState) {
-        paramObject.StateId = paramState;
-        paramObject.TimestampDiff = paramEventTimestamp - paramObject.TimestampPrevious;
-        paramObject.TimestampPrevious = paramEventTimestamp;
+function SensorOpenObjectInitialize(paramObject, paramRootUri) {
+    paramObject.IrlInitiatorId = paramRootUri + objectInitiatorId;
+    paramObject.IrlInitiator = paramRootUri + objectInitiator;
+    paramObject.IrlStateId = paramRootUri + objectStateId;
+    paramObject.IrlState = paramRootUri + objectState;
+    paramObject.IrlTsDiff = paramRootUri + objectTimestampDiff;
+    paramObject.IrlTsPrevious = paramRootUri + objectTimestampPrevious;
+}
+
+function SensorOpenObjectLoad(paramObject) {
+    paramObject.InitiatorId = SensorOpenObjectGetInitiatorId(paramObject);
+    paramObject.Initiator = SensorOpenObjectGetInitiator(paramObject);
+    paramObject.StateId = SensorOpenObjectGetStateId(paramObject);
+    paramObject.State = SensorOpenObjectGetState(paramObject);
+    paramObject.TimestampDiff = SensorOpenObjectGetTimestampDiff(paramObject);
+    paramObject.TimestampPrevious = SensorOpenObjectGetTimestampPrevious(paramObject);
+}
+
+function SensorOpenObjectRegister(paramIrl, paramInitiatorId) {
+    var sensorOpenObject = new SensorOpenObject();
+    SensorOpenObjectInitialize(sensorOpenObject, paramIrl);
+
+    createState(sensorOpenObject.IrlInitiatorId, paramInitiatorId);
+    createState(sensorOpenObject.IrlInitiator, stringEmpty);
+    createState(sensorOpenObject.IrlStateId, numUndefined);
+    createState(sensorOpenObject.IrlState, stringEmpty);
+    createState(sensorOpenObject.IrlTsDiff, numUndefined);
+    createState(sensorOpenObject.IrlTsPrevious, numUndefined);
+}
+
+function SensorOpenObjectGetInitiatorId(paramObject) {
+    return getState(paramObject.IrlInitiatorId).val;
+}
+
+function SensorOpenObjectGetInitiator(paramObject) {
+    return getState(paramObject.IrlInitiator).val;
+}
+
+function SensorOpenObjectGetStateId(paramObject) {
+    return getState(paramObject.IrlStateId).val;
+}
+
+function SensorOpenObjectGetState(paramObject) {
+    return getState(paramObject.IrlState).val;
+}
+
+function SensorOpenObjectGetTimestampDiff(paramObject) {
+    return getState(paramObject.IrlTsDiff).val;
+}
+
+function SensorOpenObjectGetTimestampPrevious(paramObject) {
+    return getState(paramObject.IrlTsPrevious).val;
+}
+
+function SensorOpenObjectSetInitiatorId(paramIrl, paramInitiatorId) {
+    var sensorOpenObject = new SensorOpenObject();
+    SensorOpenObjectInitialize(sensorOpenObject, paramIrl);
+
+    var currentInitiatorId = SensorOpenObjectGetInitiatorId(sensorOpenObject);
+    if (currentInitiatorId != paramInitiatorId) {
+        setState(sensorOpenObject.IrlInitiatorId, paramInitiatorId);
+        setState(sensorOpenObject.IrlInitiator, SensorOpenObjectInitiatorToString(sensorOpenObject));
     }
 }
 
-function SensorOpenObjectSourceToString(paramObject) {
+function SensorOpenObjectSetStateId(paramIrl, paramStateId, paramEventTimestamp) {
+    var sensorOpenObject = new SensorOpenObject();
+    SensorOpenObjectInitialize(sensorOpenObject, paramIrl);
+
+    var currentStateId = SensorOpenObjectGetStateId(sensorOpenObject);
+    if (currentStateId != paramStateId) {
+        setState(sensorOpenObject.IrlStateId, paramStateId);
+        setState(sensorOpenObject.IrlState, SensorOpenObjectStateToString(sensorOpenObject));
+        setState(sensorOpenObject.IrlTsDiff, paramEventTimestamp - SensorOpenObjectGetTimestampPrevious(sensorOpenObject));
+        setState(sensorOpenObject.IrlTsPrevious, paramEventTimestamp);
+    }
+}
+
+function SensorOpenObjectInitiatorToString(paramObject) {
     var result = stringEmpty;
-    switch (paramObject.SourceId) {
-        case 0:
+    switch (paramObject.InitiatorId) {
+        case "0":
             result = "Eingangtur";
             break;
         default:
         // Do nothing
     }
+    log("Initiator: " + result);
     return result;
 }
 
@@ -48,7 +119,7 @@ function SensorOpenObjectStateToString(paramObject) {
 }
 
 function SensorOpenObjectStatusToString(paramObject) {
-    paramObject.Source = SensorOpenObjectSourceToString(paramObject);
+    paramObject.Initiator = SensorOpenObjectInitiatorToString(paramObject);
     paramObject.State = SensorOpenObjectStateToString(paramObject);
 }
 

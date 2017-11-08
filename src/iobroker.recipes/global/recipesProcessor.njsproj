@@ -17,8 +17,7 @@
     <ProjectGuid>cd873c3e-0111-4105-9330-4b3684b0c29c</ProjectGuid>
     <ProjectHome>
     </ProjectHome>
-    <StartupFile>
-    </StartupFile>
+    <StartupFile>ts\control\ControlEingangtur.ts</StartupFile>
     <StartWebBrowser>False</StartWebBrowser>
     <SearchPath>
     </SearchPath>
@@ -44,9 +43,14 @@
     <Folder Include="ts\control\" />
   </ItemGroup>
   <ItemGroup>
+    <TypeScriptCompile Include="ts\global\classDateTimeUtils.ts" />
+    <TypeScriptCompile Include="ts\global\classNotificationObject.ts" />
+    <TypeScriptCompile Include="ts\global\classNotificationEmailObject.ts" />
+    <TypeScriptCompile Include="ts\global\classNotificationTelegramObject.ts" />
     <TypeScriptCompile Include="ts\global\classSensorOpenObject.ts" />
     <TypeScriptCompile Include="ts\control\ControlEingangtur.ts" />
     <TypeScriptCompile Include="ts\control\ControlLuftbefeuchter.ts" />
+    <TypeScriptCompile Include="ts\global\resourcesConstants.ts" />
   </ItemGroup>
   <!-- Do not delete the following Import Project.  While this appears to do nothing it is a marker for setting TypeScript properties before our import that depends on them. -->
   <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)\TypeScript\Microsoft.TypeScript.targets" Condition="False" />
