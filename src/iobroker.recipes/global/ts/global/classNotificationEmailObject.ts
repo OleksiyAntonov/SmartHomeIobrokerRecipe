@@ -6,14 +6,13 @@ var emailKey = "[SH@OAA]";
 
 // ***** EMail stream emulation: Start ***** //
 function NotificationEmailObjectComposeSubject(paramObject) {
-    return emailKey + " " + paramObject.InitiatorId + "@" + paramObject.StateId;
+    return emailKey + " " + paramObject.Initiator + "@" + paramObject.State;
 }
 
 function NotificationEmailObjectSend(paramIrl) {
     var sensorOpenObject = new SensorOpenObject();
     SensorOpenObjectInitialize(sensorOpenObject, paramIrl);
     SensorOpenObjectLoad(sensorOpenObject);
-    // SensorOpenObjectStatusToString(sensorOpenObject);
 
     sendTo(emailTarget, {
         from: emailAddressFrom,

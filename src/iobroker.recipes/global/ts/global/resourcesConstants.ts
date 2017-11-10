@@ -19,8 +19,8 @@ var objectInitiatorId = "initiatorid";
 var objectInitiator = "initiator";
 var objectStateId = "stateid";
 var objectState = "state";
-var objectTimestampPrevious = "tsPrevious";
-var objectTimestampDiff = "tsDiff";
+var objectTimestamp = "ts";
+var objectLatestChange = "lc";
 
 // Internal intercommunication objects inside homeBrain adapter
 var sensorOpenObjectInstance = "homebrain.0";

@@ -47,10 +47,14 @@
     <TypeScriptCompile Include="ts\global\classNotificationObject.ts" />
     <TypeScriptCompile Include="ts\global\classNotificationEmailObject.ts" />
     <TypeScriptCompile Include="ts\global\classNotificationTelegramObject.ts" />
+    <TypeScriptCompile Include="ts\global\classSensorOpenAeonObject.ts" />
     <TypeScriptCompile Include="ts\global\classSensorOpenObject.ts" />
     <TypeScriptCompile Include="ts\control\ControlEingangtur.ts" />
     <TypeScriptCompile Include="ts\control\ControlLuftbefeuchter.ts" />
+    <TypeScriptCompile Include="ts\global\classSensorsRegistry.ts" />
+    <TypeScriptCompile Include="ts\global\classUtils.ts" />
     <TypeScriptCompile Include="ts\global\resourcesConstants.ts" />
+    <TypeScriptCompile Include="ts\stubs.ts" />
   </ItemGroup>
   <!-- Do not delete the following Import Project.  While this appears to do nothing it is a marker for setting TypeScript properties before our import that depends on them. -->
   <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)\TypeScript\Microsoft.TypeScript.targets" Condition="False" />
