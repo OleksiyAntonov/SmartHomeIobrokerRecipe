@@ -9,16 +9,12 @@ function NotificationEmailObjectComposeSubject(paramObject) {
     return emailKey + " " + paramObject.Initiator + "@" + paramObject.State;
 }
 
-function NotificationEmailObjectSend(paramIrl) {
-    var sensorOpenObject = new SensorOpenObject();
-    SensorOpenObjectInitialize(sensorOpenObject, paramIrl);
-    SensorOpenObjectLoad(sensorOpenObject);
-
+function NotificationEmailObjectSend(paramObject) {
     sendTo(emailTarget, {
         from: emailAddressFrom,
         to: emailAddressTo,
-        subject: NotificationEmailObjectComposeSubject(sensorOpenObject),
-        text: NotificationObjectComposeBody(sensorOpenObject, SensorOpenObjectTimeStampDiffSeconds(sensorOpenObject))
+        subject: NotificationEmailObjectComposeSubject(paramObject),
+        text: NotificationObjectComposeBody(paramObject, SensorOpenObjectTimeStampDiffSeconds(paramObject))
     });
 }
 // ***** EMail stream emulation: End ***** //

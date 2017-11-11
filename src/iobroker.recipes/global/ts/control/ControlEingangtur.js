@@ -1,21 +1,24 @@
-// Declarations
-// Sensor abstracts
-function SendNotification(paramIrl) {
-    NotificationEmailObjectSend(paramIrl);
-}
-function HandleChangedState(paramIrl, paramState, paramTimeStamp, paramLatestChange) {
-    SensorOpenObjectSetStateId(null, paramIrl, paramState, paramTimeStamp, paramLatestChange);
-    return paramIrl;
+function HandleChangedState(paramIrl, paramEvent) {
+    var processedObject = new SensorOpenObject();
+    SensorOpenObjectInitialize(processedObject, paramIrl);
+    SensorOpenObjectLoadFromMemory(processedObject);
+    processedObject.StateId = SensorOpenAeonObjectConvertState(paramEvent.newState.val);
+    processedObject.Timestamp = paramEvent.newState.ts;
+    processedObject.LatestChange = paramEvent.oldState.ts;
+    SensorOpenObjectSaveToMemory(processedObject);
+    if (processedObject.StateId == SensorClosed) {
+        NotificationEmailObjectSend(processedObject);
+    }
+    return processedObject;
 }
 // ***** State subscription processing: Start ***** //
-SensorOpenObjectRegister(sensorOpenObjectEingangturIrl, 0, SensorOpenAeonObjectConvertState(getState(sensorEingangturEvent).val));
+var sensorObject = SensorOpenObjectRegister(sensorOpenObjectEingangturIrl);
+sensorObject.InitiatorId = 0;
+sensorObject.StateId = SensorOpenAeonObjectConvertState(getState(sensorEingangturEvent).val);
+SensorOpenObjectSaveToMemory(sensorObject);
 var cacheState = $(sensorEingangturEvent);
 cacheState.on(function (obj) {
-    var currentState = SensorOpenAeonObjectConvertState(obj.newState.val);
-    HandleChangedState(sensorOpenObjectEingangturIrl, currentState, obj.newState.ts, obj.oldState.ts);
-    if (currentState == SensorClosed) {
-        SendNotification(sensorOpenObjectEingangturIrl);
-    }
+    HandleChangedState(sensorOpenObjectEingangturIrl, obj);
 });
 // ***** State subscription processing: End ***** //
 //# sourceMappingURL=ControlEingangtur.js.map
