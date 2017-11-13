@@ -1,9 +1,9 @@
 function SensorOpenAeonObjectConvertState(paramState) {
     switch (paramState) {
         case SensorRegistryAeonStateClosed:
-            return SensorClosed;
+            return sensorStatusClosed;
         case SensorRegistryAeonStateOpened:
-            return SensorOpened;
+            return sensorStatusOpened;
         default:
             return stringEmpty;
     }

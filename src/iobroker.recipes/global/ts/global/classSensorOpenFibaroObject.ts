@@ -1,10 +1,11 @@
-function SensorOpenAeonObjectConvertState(paramState) {
+function SensorOpenFibaroObjectConvertState(paramState) {
     switch (paramState) {
-        case SensorRegistryAeonStateClosed:
+        case SensorRegistryFibaroStateClosed:
             return sensorStatusClosed;
-        case SensorRegistryAeonStateOpened:
+        case SensorRegistryFibaroStateOpened:
             return sensorStatusOpened;
         default:
             return stringEmpty;
+
     }
 }

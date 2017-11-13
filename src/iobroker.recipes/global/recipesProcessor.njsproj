@@ -48,10 +48,12 @@
     <TypeScriptCompile Include="ts\global\classNotificationEmailObject.ts" />
     <TypeScriptCompile Include="ts\global\classNotificationTelegramObject.ts" />
     <TypeScriptCompile Include="ts\global\classSensorOpenAeonObject.ts" />
+    <TypeScriptCompile Include="ts\global\classSensorOpenFibaroObject.ts" />
     <TypeScriptCompile Include="ts\global\classSensorOpenObject.ts" />
     <TypeScriptCompile Include="ts\control\ControlEingangtur.ts" />
     <TypeScriptCompile Include="ts\control\ControlLuftbefeuchter.ts" />
-    <TypeScriptCompile Include="ts\global\classSensorsRegistry.ts" />
+    <TypeScriptCompile Include="ts\global\classSensorsOpenAeonInterface.ts" />
+    <TypeScriptCompile Include="ts\global\classSensorsOpenFibaroInterface.ts" />
     <TypeScriptCompile Include="ts\global\classUtils.ts" />
     <TypeScriptCompile Include="ts\global\resourcesConstants.ts" />
     <TypeScriptCompile Include="ts\stubs.ts" />

@@ -1,9 +1,3 @@
-// Constants
-
-// Statuses
-var SensorOpened = "0";
-var SensorClosed = "1";
-
 /* ***** Open sensor: Start ***** */
 function SensorOpenObject() {
     this.InitiatorId = numUndefined;
@@ -110,10 +104,10 @@ function SensorOpenObjectInitiatorToString(paramObject) {
 function SensorOpenObjectStateToString(paramObject) {
     var result = stringEmpty;
     switch (paramObject.StateId) {
-        case SensorOpened:
+        case sensorStatusOpened:
             result = "Offnen";
             break;
-        case SensorClosed:
+        case sensorStatusClosed:
             result = "Zu";
             break;
         default:
