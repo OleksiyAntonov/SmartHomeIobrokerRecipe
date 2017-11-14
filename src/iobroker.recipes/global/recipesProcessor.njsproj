@@ -47,6 +47,7 @@
     <TypeScriptCompile Include="ts\global\classNotificationObject.ts" />
     <TypeScriptCompile Include="ts\global\classNotificationEmailObject.ts" />
     <TypeScriptCompile Include="ts\global\classNotificationTelegramObject.ts" />
+    <TypeScriptCompile Include="ts\global\classSensorConverter.ts" />
     <TypeScriptCompile Include="ts\global\classSensorOpenAeonObject.ts" />
     <TypeScriptCompile Include="ts\global\classSensorOpenFibaroObject.ts" />
     <TypeScriptCompile Include="ts\global\classSensorOpenObject.ts" />

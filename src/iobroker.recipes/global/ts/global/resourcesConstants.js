@@ -31,8 +31,8 @@ var sensorOpenObjectName = "sensoropen";
 // Statuses
 var sensorStatusOpened = "0";
 var sensorStatusClosed = "1";
-var sensorOpenObjectInstanceEingangtur = "0";
-var sensorOpenObjectInstanceBalkonDoor = "1";
+var sensorOpenObjectInstanceEingangtur = 0;
+var sensorOpenObjectInstanceBalkonDoor = 1;
 // Intercommunication objects instances
 // Eingangtur open/close sensor
 var sensorOpenObjectEingangturIrl = sensorOpenObjectInstance + "." + sensorOpenObjectLocationEingangtur + "." + sensorOpenObjectName + ".";

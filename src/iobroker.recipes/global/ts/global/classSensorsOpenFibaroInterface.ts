@@ -2,5 +2,5 @@
 // https://products.z-wavealliance.org/products/1356/configs
 
 // AEON
-var SensorRegistryFibaroStateClosed = "0";
-var SensorRegistryFibaroStateOpened = "255";
+var SensorRegistryFibaroStateClosed = false;
+var SensorRegistryFibaroStateOpened = true;

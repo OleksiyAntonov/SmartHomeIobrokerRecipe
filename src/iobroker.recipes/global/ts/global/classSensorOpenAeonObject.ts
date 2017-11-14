@@ -1,3 +1,5 @@
+
+
 function SensorOpenAeonObjectConvertState(paramState) {
     switch (paramState) {
         case SensorRegistryAeonStateClosed:

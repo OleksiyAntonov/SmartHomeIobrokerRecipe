@@ -1,0 +1,1 @@
+{"version":3,"file":"classSensorConverter.js","sourceRoot":"","sources":["classSensorConverter.ts"],"names":[],"mappings":"AAAA,uCAAuC,UAAU,EAAE,gBAAgB;IAC/D,MAAM,CAAC,CAAC,gBAAgB,CAAC,CAAC,CAAC;QACvB,KAAK,kCAAkC;YACnC,MAAM,CAAC,gCAAgC,CAAC,UAAU,CAAC,CAAC;QACxD,KAAK,kCAAkC;YACnC,MAAM,CAAC,kCAAkC,CAAC,UAAU,CAAC,CAAC;QAC1D;YACI,MAAM,CAAC,YAAY,CAAC;IAC5B,CAAC;AACL,CAAC"}

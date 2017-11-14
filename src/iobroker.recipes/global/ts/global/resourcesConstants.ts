@@ -42,8 +42,8 @@ var sensorOpenObjectName = "sensoropen"
 var sensorStatusOpened = "0";
 var sensorStatusClosed = "1";
 
-var sensorOpenObjectInstanceEingangtur = "0";
-var sensorOpenObjectInstanceBalkonDoor = "1";
+var sensorOpenObjectInstanceEingangtur = 0;
+var sensorOpenObjectInstanceBalkonDoor = 1;
 
 // Intercommunication objects instances
 

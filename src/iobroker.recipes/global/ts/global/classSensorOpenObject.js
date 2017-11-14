@@ -118,5 +118,5 @@ function SensorOpenObjectTimeStampDiffSeconds(paramObject) {
     }
     return result;
 }
-/* ***** Open sensor: End ***** */
+/* ***** Open sensor: End ***** */ 
 //# sourceMappingURL=classSensorOpenObject.js.map
