@@ -15,6 +15,10 @@ var sensorEingangturEvent = sensorEingangturIrl + iobrokerEvent;
 var sensorBalkonDoorNode = "NODE6";
 var sensorBalkonDoorIrl = sensorZwaveInstance + ioBrokerDivider + sensorBalkonDoorNode + ioBrokerDivider;
 var sensorBalkonDoorEvent = sensorBalkonDoorIrl + iobrokerZwaveSensor_Binary + ioBrokerDivider + iobrokerZwaveSensor_1;
+// Mailbox
+var sensorMailboxNode = "NODE3";
+var sensorMailboxIrl = sensorZwaveInstance + ioBrokerDivider + sensorMailboxNode + ioBrokerDivider;
+var sensorMailboxEvent = sensorMailboxIrl + iobrokerZwaveSensor_Binary + ioBrokerDivider + iobrokerZwaveSensor_1;
 // Internal intercommunication objects properties
 var objectName = "name";
 var objectInitiatorId = "initiatorid";
@@ -27,14 +31,19 @@ var objectLatestChange = "lc";
 var sensorOpenObjectInstance = "homebrain.0";
 var sensorOpenObjectLocationEingangtur = "eingangtur";
 var sensorOpenObjectLocationBalkonDoor = "balkondoor";
+var sensorOpenObjectLocationMailbox = "mailbox";
 var sensorOpenObjectName = "sensoropen";
 // Statuses
 var sensorStatusOpened = "0";
 var sensorStatusClosed = "1";
 var sensorOpenObjectInstanceEingangtur = 0;
 var sensorOpenObjectInstanceBalkonDoor = 1;
+var sensorOpenObjectInstanceMailbox = 2;
+var sensorOpenObjectInstanceEingangturName = "Eingangtur";
+var sensorOpenObjectInstanceBalkonDoorName = "Balkon-Door";
+var sensorOpenObjectInstanceMailboxName = "Mailbox";
 // Intercommunication objects instances
-// Eingangtur open/close sensor
 var sensorOpenObjectEingangturIrl = sensorOpenObjectInstance + "." + sensorOpenObjectLocationEingangtur + "." + sensorOpenObjectName + ".";
 var sensorOpenObjectBalkonDoorIrl = sensorOpenObjectInstance + "." + sensorOpenObjectLocationBalkonDoor + "." + sensorOpenObjectName + ".";
+var sensorOpenObjectMailboxIrl = sensorOpenObjectInstance + "." + sensorOpenObjectLocationMailbox + "." + sensorOpenObjectName + ".";
 //# sourceMappingURL=resourcesConstants.js.map

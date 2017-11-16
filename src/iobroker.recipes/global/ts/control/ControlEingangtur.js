@@ -1,4 +1,4 @@
-function HandleChangedState(paramIrl, paramInitiatorId, paramEvent) {
+function HandleChangedState(paramIrl, paramInitiatorId, paramEvent, paramEnableChat) {
     var processedObject = new SensorOpenObject();
     SensorOpenObjectInitialize(processedObject, paramIrl);
     SensorOpenObjectLoadFromMemory(processedObject);
@@ -8,30 +8,43 @@ function HandleChangedState(paramIrl, paramInitiatorId, paramEvent) {
     SensorOpenObjectSaveToMemory(processedObject);
     if (processedObject.StateId == sensorStatusClosed) {
         NotificationEmailObjectSend(processedObject);
-        NotificationTelegramObjectSend(processedObject);
+        if (paramEnableChat === true) {
+            NotificationTelegramObjectSend(processedObject);
+        }
     }
     return processedObject;
 }
+function SubscriberAttachMailbox(paramEvent) {
+    var sensorMailboxObject = SensorOpenObjectRegister(paramEvent);
+    sensorMailboxObject.InitiatorId = sensorOpenObjectInstanceMailbox;
+    sensorMailboxObject.StateId = SensorConverterStateIdDecoder(getState(sensorMailboxEvent).val, sensorMailboxObject.InitiatorId);
+    SensorOpenObjectSaveToMemory(sensorMailboxObject);
+    var cacheMailboxState = $(sensorMailboxEvent);
+    cacheMailboxState.on(function (obj) {
+        HandleChangedState(paramEvent, sensorMailboxObject.InitiatorId, obj, true);
+    });
+}
 function SubscriberAttachEingangtur(paramEvent) {
-    var sensorObject = SensorOpenObjectRegister(sensorOpenObjectEingangturIrl);
+    var sensorObject = SensorOpenObjectRegister(paramEvent);
     sensorObject.InitiatorId = sensorOpenObjectInstanceEingangtur;
     sensorObject.StateId = SensorConverterStateIdDecoder(getState(sensorEingangturEvent).val, sensorObject.InitiatorId);
     SensorOpenObjectSaveToMemory(sensorObject);
     var cacheEingangturState = $(sensorEingangturEvent);
     cacheEingangturState.on(function (obj) {
-        HandleChangedState(sensorOpenObjectEingangturIrl, sensorObject.InitiatorId, obj);
+        HandleChangedState(paramEvent, sensorObject.InitiatorId, obj, true);
     });
 }
 function SubscriberAttachBalkonDoor(paramEvent) {
-    var sensorBalkonDoorObject = SensorOpenObjectRegister(sensorOpenObjectBalkonDoorIrl);
+    var sensorBalkonDoorObject = SensorOpenObjectRegister(paramEvent);
     sensorBalkonDoorObject.InitiatorId = sensorOpenObjectInstanceBalkonDoor;
     sensorBalkonDoorObject.StateId = SensorConverterStateIdDecoder(getState(sensorBalkonDoorEvent).val, sensorBalkonDoorObject.InitiatorId);
     SensorOpenObjectSaveToMemory(sensorBalkonDoorObject);
     var cacheBalkonDoorState = $(sensorBalkonDoorEvent);
     cacheBalkonDoorState.on(function (obj) {
-        HandleChangedState(sensorOpenObjectBalkonDoorIrl, sensorBalkonDoorObject.InitiatorId, obj);
+        HandleChangedState(paramEvent, sensorBalkonDoorObject.InitiatorId, obj, false);
     });
 }
 SubscriberAttachEingangtur(sensorOpenObjectEingangturIrl);
 SubscriberAttachBalkonDoor(sensorOpenObjectBalkonDoorIrl);
+SubscriberAttachMailbox(sensorOpenObjectMailboxIrl);
 //# sourceMappingURL=ControlEingangtur.js.map

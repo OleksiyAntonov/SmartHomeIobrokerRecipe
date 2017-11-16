@@ -75,14 +75,7 @@ function SensorOpenObjectSetToMemoryStateId(paramObject) {
     setState(paramObject.IrlLatestChange, paramObject.LatestChange);
 }
 function SensorOpenObjectInitiatorToString(paramObject) {
-    var result = stringEmpty;
-    switch (paramObject.InitiatorId) {
-        case 0:
-            result = "Eingangtur";
-            break;
-        default:
-    }
-    return result;
+    return SensorConverterInitiatorIdDecoder(paramObject.InitiatorId);
 }
 function SensorOpenObjectStateToString(paramObject) {
     var result = stringEmpty;
@@ -115,6 +108,34 @@ function SensorOpenObjectTimeStampDiffSeconds(paramObject) {
     var result = SensorOpenObjectGetDiff(paramObject);
     if (result != numUndefined) {
         result = Math.round(result / 1000);
+    }
+    return result;
+}
+function SensorOpenObjectTimeStampDiffToString(paramObject) {
+    var diff = SensorOpenObjectTimeStampDiffSeconds(paramObject);
+    var hrs = Math.floor(diff / 3600);
+    var mins = Math.floor((diff - (hrs * 3600)) / 60);
+    var secs = diff - ((hrs * 3600) + (mins * 60));
+    var result = stringEmpty;
+    if (hrs !== 0) {
+        result = hrs.toString();
+    }
+    else {
+        result = "00";
+    }
+    result = result + ":";
+    if (mins !== 0) {
+        result = result + mins.toString();
+    }
+    else {
+        result = result + "00";
+    }
+    result = result + ":";
+    if (secs !== 0) {
+        result = result + secs.toString();
+    }
+    else {
+        result = result + "00";
     }
     return result;
 }

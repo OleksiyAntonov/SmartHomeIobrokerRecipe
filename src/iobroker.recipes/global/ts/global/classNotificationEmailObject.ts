@@ -14,7 +14,7 @@ function NotificationEmailObjectSend(paramObject) {
         from: emailAddressFrom,
         to: emailAddressTo,
         subject: NotificationEmailObjectComposeSubject(paramObject),
-        text: NotificationObjectComposeBody(paramObject, SensorOpenObjectTimeStampDiffSeconds(paramObject))
+        text: NotificationObjectComposeBody(paramObject, SensorOpenObjectTimeStampDiffToString(paramObject))
     });
 }
 // ***** EMail stream emulation: End ***** //

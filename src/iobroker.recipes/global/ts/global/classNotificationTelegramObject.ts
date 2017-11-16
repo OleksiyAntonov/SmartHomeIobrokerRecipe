@@ -1,5 +1,5 @@
 var telegramTarget = "telegram.0";
-var telegramChatId = "AntonovMering";
+var telegramChatId = "-252122036";
 
 function NotificationTelegramObjectSend(paramObject) {
     sendTo(telegramTarget, {
