@@ -3,7 +3,7 @@ var telegramChatId = "-252122036";
 
 function NotificationTelegramObjectSend(paramObject) {
     sendTo(telegramTarget, {
-        text: NotificationObjectComposeBody(paramObject, SensorOpenObjectTimeStampDiffSeconds(paramObject)),
+        text: NotificationObjectComposeBody(paramObject, SensorOpenObjectTimeStampDiffToString(paramObject)),
         chatId: telegramChatId
     });
 }

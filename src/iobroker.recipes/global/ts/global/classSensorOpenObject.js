@@ -118,6 +118,9 @@ function SensorOpenObjectTimeStampDiffToString(paramObject) {
     var secs = diff - ((hrs * 3600) + (mins * 60));
     var result = stringEmpty;
     if (hrs !== 0) {
+        if (hrs < 10) {
+            result = result + "0";
+        }
         result = hrs.toString();
     }
     else {
@@ -125,6 +128,9 @@ function SensorOpenObjectTimeStampDiffToString(paramObject) {
     }
     result = result + ":";
     if (mins !== 0) {
+        if (mins < 10) {
+            result = result + "0";
+        }
         result = result + mins.toString();
     }
     else {
@@ -132,6 +138,9 @@ function SensorOpenObjectTimeStampDiffToString(paramObject) {
     }
     result = result + ":";
     if (secs !== 0) {
+        if (secs < 10) {
+            result = result + "0";
+        }
         result = result + secs.toString();
     }
     else {
