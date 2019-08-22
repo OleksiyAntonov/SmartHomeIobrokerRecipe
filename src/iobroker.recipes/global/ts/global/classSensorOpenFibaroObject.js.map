@@ -1,1 +1,0 @@
-{"version":3,"file":"classSensorOpenFibaroObject.js","sourceRoot":"","sources":["classSensorOpenFibaroObject.ts"],"names":[],"mappings":"AAAA,4CAA4C,UAAU;IAClD,MAAM,CAAC,CAAC,UAAU,CAAC,CAAC,CAAC;QACjB,KAAK,+BAA+B;YAChC,MAAM,CAAC,kBAAkB,CAAC;QAC9B,KAAK,+BAA+B;YAChC,MAAM,CAAC,kBAAkB,CAAC;QAC9B;YACI,MAAM,CAAC,WAAW,CAAC;IAE3B,CAAC;AACL,CAAC"}
