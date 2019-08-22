@@ -1,5 +1,5 @@
-/* ***** Open sensor: Start ***** */
-function SensorOpenObject() {
+/* ***** Socket: Start ***** */
+function SocketObject() {
     this.InitiatorId = numUndefined;
     this.StateId = numUndefined;
     this.Initiator = stringEmpty;
@@ -8,7 +8,7 @@ function SensorOpenObject() {
     this.TimestampPrevious = numZero;
 }
 
-function SensorOpenObjectInitialize(paramObject, paramRootUri) {
+function SocketObjectInitialize(paramObject, paramRootUri) {
     paramObject.IrlInitiatorId = paramRootUri + objectInitiatorId;
     paramObject.IrlInitiator = paramRootUri + objectInitiator;
     paramObject.IrlStateId = paramRootUri + objectStateId;
@@ -17,7 +17,7 @@ function SensorOpenObjectInitialize(paramObject, paramRootUri) {
     paramObject.IrlLatestChange = paramRootUri + objectLatestChange;
 }
 
-function SensorOpenObjectLoadFromMemory(paramObject) {
+function SocketObjectLoadFromMemory(paramObject) {
     paramObject.InitiatorId = SensorOpenObjectGetFromMemoryInitiatorId(paramObject);
     paramObject.Initiator = SensorOpenObjectGetFromMemoryInitiator(paramObject);
     paramObject.StateId = SensorOpenObjectGetFromMemoryStateId(paramObject);
@@ -28,7 +28,7 @@ function SensorOpenObjectLoadFromMemory(paramObject) {
 
 function SensorOpenObjectSaveToMemory(paramObject) {
     SensorOpenObjectSetToMemoryInitiatorId(paramObject);
-    SensorOpenObjectSetToMemoryStateId(paramObject);
+    SensorOpenObjectSetToMemoryStateId(paramObject); 
 }
 
 function SensorOpenObjectRegister(paramIrl) {
@@ -134,34 +134,4 @@ function SensorOpenObjectTimeStampDiffSeconds(paramObject) {
     return result;
 }
 
-function SensorOpenObjectTimeStampDiffToString(paramObject) {
-    var diff = SensorOpenObjectTimeStampDiffSeconds(paramObject);
-    var hrs = Math.floor(diff / 3600);
-    var mins = Math.floor((diff - (hrs * 3600)) / 60);
-    var secs = diff - ((hrs * 3600) + (mins * 60));
-    var result = stringEmpty;
-    if (hrs !== 0) {
-        if (hrs < 10) {
-            result = result + "0";
-        }
-        result = hrs.toString();
-    } else { result = "00" }
-    result = result + ":";
-    if (mins !== 0) {
-        if (mins < 10) {
-            result = result + "0";
-        }
-        result = result + mins.toString();
-    } else { result = result + "00" }
-    result = result + ":";
-    if (secs !== 0) {
-        if (secs < 10) {
-            result = result + "0";
-        }
-        result = result + secs.toString();
-    } else { result = result + "00" }
-
-    return result;
-}
-
-/* ***** Open sensor: End ***** */
+/* ***** Socket: End ***** */

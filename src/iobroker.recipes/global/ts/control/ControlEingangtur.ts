@@ -37,6 +37,7 @@ function SubscriberAttachEingangtur(paramEvent) {
 
     sensorObject.InitiatorId = sensorOpenObjectInstanceEingangtur;
     sensorObject.StateId = SensorConverterStateIdDecoder(getState(sensorEingangturEvent).val, sensorObject.InitiatorId);
+
     SensorOpenObjectSaveToMemory(sensorObject);
 
     var cacheEingangturState = $(sensorEingangturEvent);
@@ -49,6 +50,8 @@ function SubscriberAttachBalkonDoor(paramEvent) {
     var sensorBalkonDoorObject = SensorOpenObjectRegister(paramEvent);
 
     sensorBalkonDoorObject.InitiatorId = sensorOpenObjectInstanceBalkonDoor;
+    log("INFO:22");
+    log(getState(sensorBalkonDoorEvent).val);
     sensorBalkonDoorObject.StateId = SensorConverterStateIdDecoder(getState(sensorBalkonDoorEvent).val, sensorBalkonDoorObject.InitiatorId);
     SensorOpenObjectSaveToMemory(sensorBalkonDoorObject);
 

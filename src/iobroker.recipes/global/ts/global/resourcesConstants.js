@@ -7,6 +7,8 @@ var iobrokerZwaveSensor_1 = "Sensor_1";
 var iobrokerZwaveSensor_Binary = "SENSOR_BINARY";
 // Iobroker resource location (IRL)
 var sensorZwaveInstance = "zwave.0";
+var devicesHueInstance = "hue.0";
+var devicesHueNode = "AntonovMering";
 // Eingangtur
 var sensorEingangturNode = "NODE4";
 var sensorEingangturIrl = sensorZwaveInstance + ioBrokerDivider + sensorEingangturNode + ioBrokerDivider;
@@ -19,6 +21,9 @@ var sensorBalkonDoorEvent = sensorBalkonDoorIrl + iobrokerZwaveSensor_Binary + i
 var sensorMailboxNode = "NODE3";
 var sensorMailboxIrl = sensorZwaveInstance + ioBrokerDivider + sensorMailboxNode + ioBrokerDivider;
 var sensorMailboxEvent = sensorMailboxIrl + iobrokerZwaveSensor_Binary + ioBrokerDivider + iobrokerZwaveSensor_1;
+// Baum Garland
+var lightBaumGarlandNode = "Weihnachtsbaum";
+var lightBaumGarlandIrl = devicesHueInstance + ioBrokerDivider + devicesHueNode + ioBrokerDivider + lightBaumGarlandNode + ioBrokerDivider;
 // Internal intercommunication objects properties
 var objectName = "name";
 var objectInitiatorId = "initiatorid";
@@ -43,7 +48,7 @@ var sensorOpenObjectInstanceEingangturName = "Eingangtur";
 var sensorOpenObjectInstanceBalkonDoorName = "Balkon-Door";
 var sensorOpenObjectInstanceMailboxName = "Mailbox";
 // Intercommunication objects instances
-var sensorOpenObjectEingangturIrl = sensorOpenObjectInstance + "." + sensorOpenObjectLocationEingangtur + "." + sensorOpenObjectName + ".";
-var sensorOpenObjectBalkonDoorIrl = sensorOpenObjectInstance + "." + sensorOpenObjectLocationBalkonDoor + "." + sensorOpenObjectName + ".";
-var sensorOpenObjectMailboxIrl = sensorOpenObjectInstance + "." + sensorOpenObjectLocationMailbox + "." + sensorOpenObjectName + ".";
+var sensorOpenObjectEingangturIrl = sensorOpenObjectInstance + ioBrokerDivider + sensorOpenObjectLocationEingangtur + ioBrokerDivider + sensorOpenObjectName + ioBrokerDivider;
+var sensorOpenObjectBalkonDoorIrl = sensorOpenObjectInstance + ioBrokerDivider + sensorOpenObjectLocationBalkonDoor + ioBrokerDivider + sensorOpenObjectName + ioBrokerDivider;
+var sensorOpenObjectMailboxIrl = sensorOpenObjectInstance + ioBrokerDivider + sensorOpenObjectLocationMailbox + ioBrokerDivider + sensorOpenObjectName + ioBrokerDivider;
 //# sourceMappingURL=resourcesConstants.js.map

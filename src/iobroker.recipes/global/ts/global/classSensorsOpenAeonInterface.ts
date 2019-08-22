@@ -2,5 +2,5 @@
 // https://products.z-wavealliance.org/products/1615/configs
 
 // AEON
-var SensorRegistryAeonStateClosed = "0";
-var SensorRegistryAeonStateOpened = "255";
+var SensorRegistryAeonStateClosed = 0;
+var SensorRegistryAeonStateOpened = 255;
