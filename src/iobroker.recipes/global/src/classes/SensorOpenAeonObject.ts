@@ -3,13 +3,13 @@
 
 // AEON
 
-import { SensorOpenObject } from "./SensorOpenObject";
+import { SensorOpenObject } from './SensorOpenObject';
 
 export class SensorOpenAeonObject extends SensorOpenObject {
-    protected get StateClosed(): string {
-        return "0";
+    protected get StateClosed() {
+        return 0;
     }
-    protected get StateOpened(): string {
-        return "255";
+    protected get StateOpened() {
+        return 255;
     }
 }

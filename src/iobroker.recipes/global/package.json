@@ -5,5 +5,16 @@
   "main": "app.js",
   "author": {
     "name": "Oleksiy"
+  },
+  "devDependencies": {
+    "@types/mocha": "*",
+    "@types/node": "*",
+    "typescript": "*"
+  },
+  "dependencies": {
+    "mocha": "*"
+  },
+  "scripts": {
+      "test": "mocha -r ts-node/register tests/**/*.js"
   }
 }

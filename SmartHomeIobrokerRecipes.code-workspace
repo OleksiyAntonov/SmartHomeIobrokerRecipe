@@ -1,0 +1,16 @@
+{
+	"folders": [
+		{
+			"path": "."
+		}
+	],
+	"settings": {
+		"vsproj": {
+			//Must be true to be activated on the current workspace
+			"activate": true,
+			//List of RegEx to exclude some files
+			"exclude": []
+		},
+		"mocha.files.glob": "tests/**/*.js"
+	}
+}
