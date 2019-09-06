@@ -21,12 +21,12 @@
   },
   "include": [
     "src/**/*.ts",
-    "tests/**/*.ts"
+    "test/**/*.ts"
   ],
   "exclude": [
     "node_modules",
     "src/**/*.d.ts",
-    "tests/**/*.d.ts"
+    "test/**/*.d.ts"
   ],
   "files": [
     "src/index.ts"
